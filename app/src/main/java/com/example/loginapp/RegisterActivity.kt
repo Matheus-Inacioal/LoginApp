@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
 
         cadastro.setOnLongClickListener{
             irParaLogin()
-            true // Adicione esta linha para retornar 'true'
+            true
         }
 
 
