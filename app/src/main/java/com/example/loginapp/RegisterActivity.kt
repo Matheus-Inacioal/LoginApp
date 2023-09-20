@@ -47,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
                         }
                     }
             } else {
-                Toast.makeText(this, "Preencha todos os campos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             }
         })
 
