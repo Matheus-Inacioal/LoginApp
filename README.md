@@ -14,19 +14,12 @@ O LoginApp é um aplicativo Android simples que demonstra um processo básico de
 - Android Studio
 - Conta no Firebase (para configurar o Firebase Authentication)
 
-## Como usar
-
-1. Clone ou baixe o repositório em sua máquina local.
-
-2. Abra o projeto no Android Studio.
-
-3. Execute o aplicativo em um emulador ou dispositivo Android.
 
 ## Como Usar
 
 1. Clone ou faça o download do repositório em sua máquina local.
 
-git clone https://github.com/Matheus-Inacioal/LoginApp.git
+   git clone https://github.com/Matheus-Inacioal/LoginApp.git
 
 2. Abra o projeto no Android Studio.
 
