@@ -7,48 +7,51 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        auth = FirebaseAuth.getInstance()
+
         val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
         val editTextPassword = findViewById<EditText>(R.id.editTextSenha)
         val buttonLogin = findViewById<Button>(R.id.buttonLogin)
 
-        val name = intent.getStringExtra("name")
-        val email = intent.getStringExtra("email")
-        val password = intent.getStringExtra("password")
-
         buttonLogin.setOnClickListener(View.OnClickListener {
-            val inputEmail = editTextEmail.text.toString()
-            val inputPassword = editTextPassword.text.toString()
+            val email = editTextEmail.text.toString()
+            val password = editTextPassword.text.toString()
 
-            if (inputEmail == email && inputPassword == password) {
-                Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Email ou senha incorretos.", Toast.LENGTH_SHORT).show()
-            }
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user: FirebaseUser? = auth.currentUser
+                        if (user != null) {
+                            val intent = Intent(this, Perfil::class.java)
+                            intent.putExtra("userId", user.uid)
+                            startActivity(intent)
+                        }
+                    } else {
+                        Toast.makeText(this, "Erro no login: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
         })
-
 
         val cadastro = findViewById<Button>(R.id.buttonCadastro)
 
-        cadastro.setOnLongClickListener{
+        cadastro.setOnClickListener{
             irParaCadastro()
-            true
         }
-
-
     }
 
     private fun irParaCadastro() {
-
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
-
     }
 }

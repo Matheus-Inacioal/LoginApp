@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "228077006319",
+    "project_id": "android-qualifica",
+    "storage_bucket": "android-qualifica.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228077006319:android:99cd32c18b8ad409dd5a1a",
+        "android_client_info": {
+          "package_name": "com.example.loginapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnHUd8biSjc6Ic0ViJrIFwksOmo4zwWnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
